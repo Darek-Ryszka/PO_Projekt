@@ -45,7 +45,7 @@ namespace PO_Projekt
             // lblFood
             // 
             this.lblFood.BackColor = System.Drawing.Color.Red;
-            this.lblFood.Location = new System.Drawing.Point(287, 139);
+            this.lblFood.Location = new System.Drawing.Point(494, 224);
             this.lblFood.Name = "lblFood";
             this.lblFood.Size = new System.Drawing.Size(21, 21);
             this.lblFood.TabIndex = 1;
