@@ -37,7 +37,36 @@ namespace PO_Projekt
 
         private void move(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            int x = snake[front].Location.X, y = snake[front].Location.Y;
+            if (dx == 0 && dy == 0) return;
+            if (game_over(x + dx, y + dy))
+            {
+                timer.Stop();
+                MessageBox.Show("Game Over");
+                return;
+            }
+            if (collisionFood(x + dx, y + dy))
+            {
+                score += 1;
+                lblScore.Text = "Score: " + score.ToString();
+                if (hits((y + dy) / 20, (x + dx) / 20)) return;
+                Piece head = new Piece(x + dx, y + dy);
+                front = (front - 1 + 1250) % 1250;
+                snake[front] = head;
+                visit[head.Location.Y / 20, head.Location.X / 20] = true;
+                Controls.Add(head);
+                randomFood();
+            }
+            else
+            {
+                if (hits((y + dy) / 20, (x + dx) / 20)) return;
+                visit[snake[back].Location.Y / 20, snake[back].Location.X / 20] = false;
+                front = (front - 1 + 1250) % 1250;
+                snake[front] = snake[back];
+                snake[front].Location = new Point(x + dx, y + dy);
+                back = (back - 1 + 1250) % 1250;
+                visit[(y + dy) / 20, (x + dx) / 20] = true;
+            }
         }
 
         private void intial() //metoda
