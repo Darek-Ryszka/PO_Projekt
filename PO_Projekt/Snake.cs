@@ -28,21 +28,21 @@ namespace PO_Projekt
             launchTimer();
         }
 
-        private void launchTimer()
+        private void launchTimer() //metoda odpalająca czas 
         {
             timer.Interval = 50;
             timer.Tick += move;
             timer.Start();
         }
 
-        private void move(object sender, EventArgs e)
+        private void move(object sender, EventArgs e) //metoda opowiadające za logikę gry, poruszanie się weża, game over i kolizję z jedzeniem
         {
             int x = snake[front].Location.X, y = snake[front].Location.Y;
             if (dx == 0 && dy == 0) return;
             if (game_over(x + dx, y + dy))
             {
                 timer.Stop();
-                MessageBox.Show("Game Over");
+                MessageBox.Show("Game Over"); //game over
                 return;
             }
             if (collisionFood(x + dx, y + dy))
@@ -55,7 +55,7 @@ namespace PO_Projekt
                 snake[front] = head;
                 visit[head.Location.Y / 20, head.Location.X / 20] = true;
                 Controls.Add(head);
-                randomFood();
+                randomFood(); //logika odpowiadająca za podbicie wyniku o 1 w momencie kolizji węża z jedzeniem i generowanie nowego jedzenia na planszy
             }
             else
             {
@@ -65,15 +65,15 @@ namespace PO_Projekt
                 snake[front] = snake[back];
                 snake[front].Location = new Point(x + dx, y + dy);
                 back = (back - 1 + 1250) % 1250;
-                visit[(y + dy) / 20, (x + dx) / 20] = true;
+                visit[(y + dy) / 20, (x + dx) / 20] = true; //dodanie nowego elementu węża po 
             }
         }
 
-        private void intial() //metoda
+        private void intial() //metoda inicjująca
         {
             visit = new bool[rows, cols];
-            Piece head = new Piece((rand.Next() % cols) * 20, (rand.Next() % rows) * 20); //randomowe tworzenie weza
-            lblFood.Location = new Point((rand.Next() % cols) * 20, (rand.Next() % rows) * 20); //randomowe tworzenie jedzonka dla weza
+            Piece head = new Piece((rand.Next() % cols) * 20, (rand.Next() % rows) * 20); //randomowe tworzenie położenia węża
+            lblFood.Location = new Point((rand.Next() % cols) * 20, (rand.Next() % rows) * 20); //randomowe tworzenie położenia jedzonka dla weza
             for (int i = 0; i < rows; i++)
                 for (int j = 0; j < cols; j++)
                 {
