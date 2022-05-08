@@ -35,6 +35,11 @@ namespace PO_Projekt
             timer.Start();
         }
 
+        private void move(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         private void intial() //metoda
         {
             visit = new bool[rows, cols];
