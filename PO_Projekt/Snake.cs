@@ -30,7 +30,9 @@ namespace PO_Projekt
 
         private void launchTimer()
         {
-            throw new NotImplementedException();
+            timer.Interval = 50;
+            timer.Tick += move;
+            timer.Start();
         }
 
         private void intial() //metoda
