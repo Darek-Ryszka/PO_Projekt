@@ -25,6 +25,12 @@ namespace PO_Projekt
         {
             InitializeComponent();
             intial();
+            launchTimer();
+        }
+
+        private void launchTimer()
+        {
+            throw new NotImplementedException();
         }
 
         private void intial() //metoda
