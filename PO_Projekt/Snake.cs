@@ -65,8 +65,19 @@ namespace PO_Projekt
                 snake[front] = snake[back];
                 snake[front].Location = new Point(x + dx, y + dy);
                 back = (back - 1 + 1250) % 1250;
-                visit[(y + dy) / 20, (x + dx) / 20] = true; //dodanie nowego elementu węża po 
+                visit[(y + dy) / 20, (x + dx) / 20] = true; //dodanie nowego elementu węża po zjedzeniu
             }
+        }
+
+        private void randomFood() // metoda która po kolizji czyści miejsce pojawienia się jedzenia
+        {
+            available.Clear();
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < cols; j++)
+                    if (!visit[i, j]) available.Add(i * cols + j);
+            int idx = rand.Next(available.Count) % available.Count;
+            lblFood.Left = (available[idx] * 20) % Width;
+            lblFood.Top = (available[idx] * 20) / Width * 20;
         }
 
         private void intial() //metoda inicjująca
@@ -84,5 +95,11 @@ namespace PO_Projekt
             available.Remove(head.Location.Y / 20 * cols + head.Location.X / 20);
             Controls.Add(head); snake[front] = head;
         }
+
+
+
     }
+
+
+
 }
