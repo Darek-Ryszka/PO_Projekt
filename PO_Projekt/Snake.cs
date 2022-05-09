@@ -28,7 +28,7 @@ namespace PO_Projekt
             launchTimer();
         }
 
-        private void launchTimer() //metoda odpalająca czas 
+        private void launchTimer() //metoda odpalająca za czas i interwały czasowe
         {
             timer.Interval = 50;
             timer.Tick += move;
@@ -45,10 +45,10 @@ namespace PO_Projekt
                 MessageBox.Show("Game Over"); //game over
                 return;
             }
-            if (collisionFood(x + dx, y + dy))
+            if (collisionFood(x + dx, y + dy)) //wykrycie kolizji węża z jedzeniem
             {
                 score += 1;
-                lblScore.Text = "Score: " + score.ToString();
+                lblScore.Text = "Score: " + score.ToString(); //podbicie wyniku o 1 punkt
                 if (hits((y + dy) / 20, (x + dx) / 20)) return;
                 Piece head = new Piece(x + dx, y + dy);
                 front = (front - 1 + 1250) % 1250;
@@ -69,7 +69,7 @@ namespace PO_Projekt
             }
         }
 
-        private void randomFood() // metoda która po kolizji czyści miejsce pojawienia się jedzenia
+        private void randomFood() // metoda która czyści miejsce pojawienia się jedzenia
         {
             available.Clear();
             for (int i = 0; i < rows; i++)
@@ -80,7 +80,7 @@ namespace PO_Projekt
             lblFood.Top = (available[idx] * 20) / Width * 20;
         }
 
-        private void intial() //metoda inicjująca
+        private void intial() //metoda inicjująca/rozpoczynająca, losująca startowe pozycje węża i jedzenia
         {
             visit = new bool[rows, cols];
             Piece head = new Piece((rand.Next() % cols) * 20, (rand.Next() % rows) * 20); //randomowe tworzenie położenia węża
