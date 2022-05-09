@@ -80,6 +80,17 @@ namespace PO_Projekt
             lblFood.Top = (available[idx] * 20) / Width * 20;
         }
 
+        private bool hits(int x, int y) //metoda sprawdzająca czy wąż ugryzł własne ciało, jeśli tak gra się zatrzymuje i wyświetlany jest kominikat
+        {
+            if (visit[x, y])
+            {
+                timer.Stop();
+                MessageBox.Show("Snake Hit his Body");
+                return true;
+            }
+            return false;
+        }
+
         private void intial() //metoda inicjująca/rozpoczynająca, losująca startowe pozycje węża i jedzenia
         {
             visit = new bool[rows, cols];
