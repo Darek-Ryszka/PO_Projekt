@@ -39,7 +39,7 @@ namespace PO_Projekt
         {
             int x = snake[front].Location.X, y = snake[front].Location.Y;
             if (dx == 0 && dy == 0) return;
-            if (game_over(x + dx, y + dy))
+            if (game_over(x + dx, y + dy)) //wykrycie kolizji węża z brzegiem okna 
             {
                 timer.Stop();
                 MessageBox.Show("Game Over"); //game over
@@ -69,7 +69,7 @@ namespace PO_Projekt
             }
         }
 
-        private void randomFood() // metoda która czyści miejsce pojawienia się jedzenia
+        private void randomFood() //metoda która czyści miejsce pojawienia się jedzenia
         {
             available.Clear();
             for (int i = 0; i < rows; i++)
@@ -89,6 +89,11 @@ namespace PO_Projekt
                 return true;
             }
             return false;
+        }
+
+        private bool collisionFood(int x, int y) //metoda wykrywająca kolizję z jedzeniem
+        {
+            return x == lblFood.Location.X && y == lblFood.Location.Y;
         }
 
         private void intial() //metoda inicjująca/rozpoczynająca, losująca startowe pozycje węża i jedzenia
