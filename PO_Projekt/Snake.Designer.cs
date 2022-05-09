@@ -36,6 +36,7 @@ namespace PO_Projekt
             // lblScore
             // 
             this.lblScore.AutoSize = true;
+            this.lblScore.ForeColor = System.Drawing.Color.White;
             this.lblScore.Location = new System.Drawing.Point(457, 9);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(98, 21);
@@ -55,6 +56,7 @@ namespace PO_Projekt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1000, 500);
             this.Controls.Add(this.lblFood);
             this.Controls.Add(this.lblScore);
