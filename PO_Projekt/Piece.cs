@@ -10,7 +10,7 @@ namespace PO_Projekt
 {
     class Piece : Label //dziedziczenie
     {
-        public Piece(int x, int y) //konstruktor 
+        public Piece(int x, int y) //konstruktor, stworzenie węża o kolorze zielonym 
         {
             Location = new System.Drawing.Point(x, y);
             Size = new System.Drawing.Size(20, 20);

@@ -71,13 +71,13 @@ namespace PO_Projekt
 
         private void randomFood() //metoda która czyści miejsce pojawienia się jedzenia
         {
-            available.Clear();
+            available.Clear(); //czyśczenie okna z jedzenia
             for (int i = 0; i < rows; i++)
                 for (int j = 0; j < cols; j++)
                     if (!visit[i, j]) available.Add(i * cols + j);
             int idx = rand.Next(available.Count) % available.Count;
             lblFood.Left = (available[idx] * 20) % Width;
-            lblFood.Top = (available[idx] * 20) / Width * 20;
+            lblFood.Top = (available[idx] * 20) / Width * 20; //losowanie nowego miejsca pojawienia się jedzeni na mapie
         }
 
         private bool hits(int x, int y) //metoda sprawdzająca czy wąż ugryzł własne ciało, jeśli tak gra się zatrzymuje i wyświetlany jest kominikat
