@@ -55,7 +55,7 @@ namespace PO_Projekt
                 snake[front] = head;
                 visit[head.Location.Y / 20, head.Location.X / 20] = true;
                 Controls.Add(head);
-                randomFood(); //logika odpowiadająca za podbicie wyniku o 1 w momencie kolizji węża z jedzeniem i generowanie nowego jedzenia na planszy
+                randomFood(); //logika odpowiadająca za podbicie wyniku o 1 w momencie kolizji węża z jedzeniem, generowanie nowego jedzenia na planszy i dodanie kolejnego segmentu węża
             }
             else
             {
@@ -65,7 +65,7 @@ namespace PO_Projekt
                 snake[front] = snake[back];
                 snake[front].Location = new Point(x + dx, y + dy);
                 back = (back - 1 + 1250) % 1250;
-                visit[(y + dy) / 20, (x + dx) / 20] = true; //dodanie nowego elementu węża po zjedzeniu
+                visit[(y + dy) / 20, (x + dx) / 20] = true; //zjedzenie części włąsnego ciało przez węża
             }
         }
 
@@ -89,6 +89,11 @@ namespace PO_Projekt
                 return true;
             }
             return false;
+        }
+
+        private bool game_over(int x, int y) //metoda wykrywająca kolizję węża z brzegami okna
+        {
+            return x < 0 || y < 0 || x > 980 || y > 480;
         }
 
         private bool collisionFood(int x, int y) //metoda wykrywająca kolizję z jedzeniem
