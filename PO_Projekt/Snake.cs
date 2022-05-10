@@ -34,8 +34,12 @@ namespace PO_Projekt
             timer.Tick += move;
             timer.Start();
         }
+        private void Snake_KeyDown(object sender, KeyEventArgs e)
+        {
 
-        private void move(object sender, EventArgs e) //metoda opowiadające za logikę gry, poruszanie się weża, game over i kolizję z jedzeniem
+        }
+
+            private void move(object sender, EventArgs e) //metoda opowiadające za logikę gry, poruszanie się weża, game over i kolizję z jedzeniem
         {
             int x = snake[front].Location.X, y = snake[front].Location.Y;
             if (dx == 0 && dy == 0) return;
