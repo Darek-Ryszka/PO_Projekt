@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PO_Projekt
+namespace Snake
 {
-    public partial class Snake : Form //dziedziczenie
+    public partial class Snake : Form
     {
         int cols = 50, rows = 25, score = 0, dx = 0, dy = 0, front = 0, back = 0;
         Piece[] snake = new Piece[1250];
@@ -34,10 +34,11 @@ namespace PO_Projekt
             timer.Tick += move;
             timer.Start();
         }
-        private void Snake_KeyDown(object sender, KeyEventArgs e)
+
+        private void Snake_KeyDown(object sender, KeyEventArgs e) //metoda pobierająca informacje o przycisku
         {
             dx = dy = 0;
-            switch (e.KeyCode)
+            switch(e.KeyCode)
             {
                 case Keys.Right:
                     dx = 20;
@@ -101,7 +102,7 @@ namespace PO_Projekt
 
         private bool hits(int x, int y) //metoda sprawdzająca czy wąż ugryzł własne ciało, jeśli tak gra się zatrzymuje i wyświetlany jest kominikat
         {
-            if (visit[x, y])
+           if (visit[x, y])
             {
                 timer.Stop();
                 MessageBox.Show("Snake Hit his Body");
@@ -110,21 +111,23 @@ namespace PO_Projekt
             return false;
         }
 
-        private bool game_over(int x, int y) //metoda wykrywająca kolizję węża z brzegami okna
-        {
-            return x < 0 || y < 0 || x > 980 || y > 480;
-        }
-
         private bool collisionFood(int x, int y) //metoda wykrywająca kolizję z jedzeniem
         {
             return x == lblFood.Location.X && y == lblFood.Location.Y;
         }
 
+        private bool game_over(int x, int y) //metoda wykrywająca kolizję węża z brzegami okna
+        {
+            return x < 0 || y < 0 || x > 980 || y > 480;
+        }
+
         private void intial() //metoda inicjująca/rozpoczynająca, losująca startowe pozycje węża i jedzenia
         {
             visit = new bool[rows, cols];
-            Piece head = new Piece((rand.Next() % cols) * 20, (rand.Next() % rows) * 20); //randomowe tworzenie położenia węża
-            lblFood.Location = new Point((rand.Next() % cols) * 20, (rand.Next() % rows) * 20); //randomowe tworzenie położenia jedzonka dla weza
+            Piece head 
+                = new Piece((rand.Next() % cols) * 20, (rand.Next() % rows) * 20); //randomowe tworzenie położenia węża
+            lblFood.Location 
+                = new Point((rand.Next() % cols) * 20, (rand.Next() % rows) * 20); //randomowe tworzenie położenia jedzonka dla weza
             for (int i = 0; i < rows; i++)
                 for (int j = 0; j < cols; j++)
                 {

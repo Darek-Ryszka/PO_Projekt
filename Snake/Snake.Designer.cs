@@ -1,17 +1,16 @@
-﻿
-namespace PO_Projekt
+﻿namespace Snake
 {
     partial class Snake
     {
         /// <summary>
-        /// Wymagana zmienna projektanta.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Wyczyść wszystkie używane zasoby.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">prawda, jeżeli zarządzane zasoby powinny zostać zlikwidowane; Fałsz w przeciwnym wypadku.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,11 +20,11 @@ namespace PO_Projekt
             base.Dispose(disposing);
         }
 
-        #region Kod generowany przez Projektanta formularzy systemu Windows
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Metoda wymagana do obsługi projektanta — nie należy modyfikować
-        /// jej zawartości w edytorze kodu.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -36,21 +35,23 @@ namespace PO_Projekt
             // lblScore
             // 
             this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.Color.Black;
             this.lblScore.ForeColor = System.Drawing.Color.White;
-            this.lblScore.Location = new System.Drawing.Point(457, 9);
+            this.lblScore.Location = new System.Drawing.Point(420, 9);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(98, 21);
             this.lblScore.TabIndex = 0;
-            this.lblScore.Text = "Wynik: 0";
+            this.lblScore.Text = "Score: 0";
             // 
             // lblFood
             // 
+            this.lblFood.AutoSize = true;
             this.lblFood.BackColor = System.Drawing.Color.Red;
-            this.lblFood.Location = new System.Drawing.Point(494, 224);
+            this.lblFood.Location = new System.Drawing.Point(249, 249);
             this.lblFood.Name = "lblFood";
             this.lblFood.Size = new System.Drawing.Size(21, 21);
             this.lblFood.TabIndex = 1;
-            this.lblFood.Text = "\r\n";
+            this.lblFood.Text = " ";
             // 
             // Snake
             // 
@@ -60,12 +61,12 @@ namespace PO_Projekt
             this.ClientSize = new System.Drawing.Size(1000, 500);
             this.Controls.Add(this.lblFood);
             this.Controls.Add(this.lblScore);
-            this.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "Snake";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Snake_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

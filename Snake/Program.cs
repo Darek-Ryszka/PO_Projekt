@@ -4,12 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PO_Projekt
+namespace Snake
 {
     static class Program
     {
         /// <summary>
-        /// Główny punkt wejścia dla aplikacji.
+        /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
