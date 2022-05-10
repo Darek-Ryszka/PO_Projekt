@@ -135,11 +135,5 @@ namespace PO_Projekt
             available.Remove(head.Location.Y / 20 * cols + head.Location.X / 20);
             Controls.Add(head); snake[front] = head;
         }
-
-
-
     }
-
-
-
 }
