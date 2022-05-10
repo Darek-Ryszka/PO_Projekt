@@ -36,10 +36,25 @@ namespace PO_Projekt
         }
         private void Snake_KeyDown(object sender, KeyEventArgs e)
         {
-
+            dx = dy = 0;
+            switch (e.KeyCode)
+            {
+                case Keys.Right:
+                    dx = 20;
+                    break;
+                case Keys.Left:
+                    dx = -20;
+                    break;
+                case Keys.Up:
+                    dy = -20;
+                    break;
+                case Keys.Down:
+                    dy = 20;
+                    break;
+            }
         }
 
-            private void move(object sender, EventArgs e) //metoda opowiadające za logikę gry, poruszanie się weża, game over i kolizję z jedzeniem
+        private void move(object sender, EventArgs e) //metoda opowiadające za logikę gry, poruszanie się weża, game over i kolizję z jedzeniem
         {
             int x = snake[front].Location.X, y = snake[front].Location.Y;
             if (dx == 0 && dy == 0) return;
