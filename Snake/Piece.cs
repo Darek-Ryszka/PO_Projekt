@@ -12,9 +12,9 @@ namespace Snake
     {
         public Piece(int x, int y) //konstruktor, stworzenie węża o kolorze zielonym 
         {
-            Location = new Point(x, y);
-            Size = new Size(20, 20);
-            BackColor = Color.Green;
+            Location = new Point(x, y); //lokalizacja 
+            Size = new Size(20, 20); //rozmiar
+            BackColor = Color.Green; //kolor
             Enabled = false;
         }
     }

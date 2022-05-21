@@ -12,11 +12,11 @@ namespace Snake
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main() //main odpalający cały program
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Snake());
+            Application.Run(new Snake()); //odpalenie gry
         }
     }
 }

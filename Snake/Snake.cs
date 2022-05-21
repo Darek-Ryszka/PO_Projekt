@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-    public partial class Snake : Form
+    public partial class Snake : Form //dziedziczenie
     {
         int cols = 50, rows = 25, score = 0, dx = 0, dy = 0, front = 0, back = 0;
-        Piece[] snake = new Piece[1250];
+        Piece[] snake = new Piece[1250]; //pole powierzchni  okienka
         List<int> available = new List<int>();
         bool[,] visit;
 
@@ -28,7 +28,7 @@ namespace Snake
             launchTimer();
         }
 
-        private void launchTimer() //metoda odpalająca za czas i interwały czasowe
+        private void launchTimer() //metoda odpowiadająca za czas i interwały czasowe czyli  prędkośc poruszania się naszego węża
         {
             timer.Interval = 50;
             timer.Tick += move;
@@ -61,7 +61,7 @@ namespace Snake
             if (dx == 0 && dy == 0) return;
             if (game_over(x + dx, y + dy)) //wykrycie kolizji węża z brzegiem okna 
             {
-                timer.Stop();
+                timer.Stop(); //zatrzymanie czasu
                 MessageBox.Show("Game Over"); //game over
                 return;
             }
@@ -79,7 +79,7 @@ namespace Snake
             }
             else
             {
-                if (hits((y + dy) / 20, (x + dx) / 20)) return;
+                if (hits((y + dy) / 20, (x + dx) / 20)) return; //sprawdzenie zjedzenia własnej cześci ciałą przez węża
                 visit[snake[back].Location.Y / 20, snake[back].Location.X / 20] = false;
                 front = (front - 1 + 1250) % 1250;
                 snake[front] = snake[back];
